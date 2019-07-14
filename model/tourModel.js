@@ -38,6 +38,20 @@ tourSchema.pre('save', function(next) {
   next();
 });
 
+tourSchema.pre('update', function(next) {
+  //pobranie aktualnego czasu
+  const currentDate = new Date();
+  
+  //zmiana pola na aktualny czas
+  this.updated_at = currentDate;
+  
+  if (!this.created_at)
+    this.created_at = currentDate;
+  
+  next();
+});
+
+
 //model based on tourSchema
 const Tour = mongoose.model('Tour', tourSchema);
 

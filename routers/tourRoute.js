@@ -7,8 +7,8 @@ const route = express.Router();
 //route.param('id', tourController.checkID);
 
 
-route.route('/').get(tourController.getAllTour).post(tourController.checkBody,tourController.CreateTour);
-route.route('/:id').get(tourController.getTour).patch(tourController.UpdateTour).delete(tourController.DeleteTour);
+route.route('/').get(tourController.getAllTour).post(tourController.CreateTour);
+route.route('/:id').get(tourController.getTour).patch(tourController.updateTour).delete(tourController.DeleteTour);
 
 
 
